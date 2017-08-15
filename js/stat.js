@@ -33,5 +33,5 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.round(Math.random() * 10) / 10 + ')';
     }
     ctx.fillRect(140 + 90 * i, 240, 40, -times[i] * step);
-}
+  }
 };
