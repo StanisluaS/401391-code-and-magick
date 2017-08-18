@@ -33,7 +33,7 @@ window.renderStatistics = function (ctx, names, times) {
       histogramHeight = timesArr[j] * step;
       canvas.textBaseline = 'top'; // Рисуем надпись от левого верхнего угла
       printText(canvas, namesArr[j], distance, 260, '16px PT Mono', '#000');
-      printText(canvas, parseInt(timesArr[j], 10), distance, 230 - histogramHeight);
+      printText(canvas, parseInt(timesArr[j], 10), distance, (230 - histogramHeight));
       printRect(canvas, distance, 250, 40, -histogramHeight, getRandomColor(namesArr[j]));
       distance += 90;
     }
