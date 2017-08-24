@@ -63,12 +63,14 @@
   <div class="demo"></div>
 
   <div class="setup-open">
-    <img src="./img/user-1.jpg" class="setup-open-icon">
+    <img src="./img/user-1.jpg" class="setup-open-icon" tabindex="0">
   </div>
 </header>
 
 <div class="overlay setup hidden">
-  <form class="setup-wizard-form" method="post" enctype="multipart/form-data" autocomplete="off">
+  <form class="setup-wizard-form" method="post"
+        enctype="multipart/form-data"
+        action="https://1510.dump.academy/code-and-magick" autocomplete="off">
     <div class="setup-title">
       <div class="setup-user">
         <div class="upload">
@@ -76,7 +78,7 @@
           <input type="file" name="avatar">
         </div>
         <label>
-          <input type="text" name="username" class="setup-user-name" value="Синий Пендальф"/>
+          <input type="text" name="username" class="setup-user-name" value="Синий Пендальф"  minlength="2" maxlength="25" required/>
         </label>
       </div>
 
@@ -103,7 +105,7 @@
             <g class="wizard">
               <use xlink:href="#wizard-coat" class="wizard-coat" style="fill: #6589a4"></use>
               <use xlink:href="#wizard-head" class="wizard-head"></use>
-              <use xlink:href="#wizard-eyes" class="wizard-eyes"></use>
+              <use xlink:href="#wizard-eyes" class="wizard-eyes" ></use>
               <use xlink:href="#wizard-hands" class="wizard-hands"></use>
             </g>
           </svg>
