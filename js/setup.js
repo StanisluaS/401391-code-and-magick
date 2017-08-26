@@ -26,11 +26,6 @@ showBlock(setupSimilar);
 
 setupOpen.addEventListener('click', openPopup);
 setupOpen.addEventListener('keydown', onPopupEnterPress);
-setupClose.addEventListener('click', closePopup);
-setupSubmit.addEventListener('click', closePopup);
-wizardCoat.addEventListener('click', randomWizardCoat);
-wizardEyes.addEventListener('click', randomWizardEyes);
-setupFireballWrap.addEventListener('click', randomWizardFireball);
 
 // add wizard setup events
 function randomWizardCoat(evt) {
@@ -39,17 +34,32 @@ function randomWizardCoat(evt) {
 function randomWizardEyes(evt) {
   evt.target.style.fill = WIZARD_EYES_COLOR[getRandomNumber(WIZARD_EYES_COLOR.length)];
 }
-function randomWizardFireball(evt) {
-  evt.target.style.background = WIZARD_FIREBALL_COLOR[getRandomNumber(WIZARD_FIREBALL_COLOR.length)];
+function randomWizardFireball() {
+  setupFireballWrap.style.background = WIZARD_FIREBALL_COLOR[getRandomNumber(WIZARD_FIREBALL_COLOR.length)];
 }
 
 // add open/close events
 function openPopup() {
   userDialog.classList.remove('hidden');
-  document.addEventListener('keydown', onPopupKeyPress);
+  setupOpen.removeEventListener('click', openPopup);
+  setupOpen.removeEventListener('keydown', onPopupEnterPress);
+  userDialog.addEventListener('keydown', onPopupKeyPress);
+  setupClose.addEventListener('click', closePopup);
+  setupSubmit.addEventListener('click', closePopup);
+  wizardCoat.addEventListener('click', randomWizardCoat);
+  wizardEyes.addEventListener('click', randomWizardEyes);
+  setupFireballWrap.addEventListener('click', randomWizardFireball);
 }
 function closePopup() {
   userDialog.classList.add('hidden');
+  setupOpen.addEventListener('click', openPopup);
+  setupOpen.addEventListener('keydown', onPopupEnterPress);
+  userDialog.removeEventListener('keydown', onPopupKeyPress);
+  setupClose.removeEventListener('click', closePopup);
+  setupSubmit.removeEventListener('click', closePopup);
+  wizardCoat.removeEventListener('click', randomWizardCoat);
+  wizardEyes.removeEventListener('click', randomWizardEyes);
+  setupFireballWrap.removeEventListener('click', randomWizardFireball);
 }
 function onPopupKeyPress(evt) {
   if ((evt.keyCode === ENTER_KEYCODE && evt.target === (setupClose || setupSubmit)) || (evt.keyCode === ESC_KEYCODE && evt.target !== setupUserName)) {
