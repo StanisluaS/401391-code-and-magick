@@ -7,6 +7,7 @@
   var wizardCoat = window.window.userDialog.querySelector('.wizard-coat');
   var wizardEyes = window.userDialog.querySelector('.wizard-eyes');
   var setupFireballWrap = window.userDialog.querySelector('.setup-fireball-wrap');
+  var userPic = window.userDialog.querySelector('.setup-user-pic');
 
 
   var WIZARD_FIREBALL_COLOR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
@@ -33,6 +34,8 @@
   // add open/close events
   function openPopup() {
     window.userDialog.classList.remove('hidden');
+    userPic.addEventListener('mousedown', window.dialog.dragging);
+    window.moveElement.addEventsForDragAndDrop();
     setupOpen.removeEventListener('click', openPopup);
     setupOpen.removeEventListener('keydown', function (evt) {
       window.util.onPopupEnterPress(evt, closePopup);
@@ -47,7 +50,10 @@
     setupFireballWrap.addEventListener('click', randomWizardFireball);
   }
   function closePopup() {
+    window.dialog.resetBias();
     window.userDialog.classList.add('hidden');
+    userPic.removeEventListener('mousedown', window.dialog.dragging);
+    window.moveElement.removeEventsForDragAndDrop();
     setupOpen.addEventListener('click', openPopup);
     setupOpen.addEventListener('keydown', function (evt) {
       window.util.onPopupEnterPress(evt, closePopup);
