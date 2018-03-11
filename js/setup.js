@@ -14,6 +14,9 @@
 
 
   window.util.showBlock(setupSimilar);
+  window.colorize.color(wizardCoat, window.WIZARD_COAT_COLOR, paintWizardCoat);
+  window.colorize.color(wizardEyes, window.WIZARD_EYES_COLOR, paintWizardEyes);
+  window.colorize.color(setupFireballWrap, WIZARD_FIREBALL_COLOR, paintWizardFireball);
 
   setupOpen.addEventListener('click', openPopup);
   setupOpen.addEventListener('keydown', function (evt) {
@@ -21,14 +24,14 @@
   });
 
   // add wizard setup events
-  function randomWizardCoat(evt) {
-    evt.target.style.fill = window.WIZARD_COAT_COLOR[window.util.getRandomNumber(window.WIZARD_COAT_COLOR.length)];
+  function paintWizardCoat(element, color) {
+    element.style.fill = color;
   }
-  function randomWizardEyes(evt) {
-    evt.target.style.fill = window.WIZARD_EYES_COLOR[window.util.getRandomNumber(window.WIZARD_EYES_COLOR.length)];
+  function paintWizardEyes(element, color) {
+    element.style.fill = color;
   }
-  function randomWizardFireball() {
-    setupFireballWrap.style.background = WIZARD_FIREBALL_COLOR[window.util.getRandomNumber(WIZARD_FIREBALL_COLOR.length)];
+  function paintWizardFireball(element, color) {
+    element.style.background = color;
   }
 
   // add open/close events
@@ -45,10 +48,8 @@
     });
     window.setupClose.addEventListener('click', closePopup);
     window.setupSubmit.addEventListener('click', closePopup);
-    wizardCoat.addEventListener('click', randomWizardCoat);
-    wizardEyes.addEventListener('click', randomWizardEyes);
-    setupFireballWrap.addEventListener('click', randomWizardFireball);
   }
+
   function closePopup() {
     window.dialog.resetBias();
     window.userDialog.classList.add('hidden');
@@ -63,8 +64,5 @@
     });
     window.setupClose.removeEventListener('click', closePopup);
     window.setupSubmit.removeEventListener('click', closePopup);
-    wizardCoat.removeEventListener('click', randomWizardCoat);
-    wizardEyes.removeEventListener('click', randomWizardEyes);
-    setupFireballWrap.removeEventListener('click', randomWizardFireball);
   }
 })();
