@@ -18,6 +18,17 @@ h2 {
   text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.72);
 }
 
+.error-message {
+  z-index: 100;
+  margin: 0 auto;
+  text-align: center;
+  background-color: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+}
+
 button {
   margin-right: 20px;
   padding: 0 16px;
