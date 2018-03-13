@@ -17,7 +17,11 @@
   window.wizard = {
     updateWizards: function () {
       printWizard(wizards.sort(function (left, right) {
-        return window.util.getRank(right) - window.util.getRank(left);
+        var rankDiff = window.util.getRank(right) - window.util.getRank(left);
+        if (rankDiff === 0) {
+          rankDiff = window.util.namesComparator(left.name, right.name);
+        }
+        return rankDiff;
       }));
     }
   };
