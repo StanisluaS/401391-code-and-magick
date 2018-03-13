@@ -4,8 +4,8 @@
 (function () {
   var setupSimilar = window.userDialog.querySelector('.setup-similar');
   var setupOpen = document.querySelector('.setup-open');
-  var wizardCoat = window.window.userDialog.querySelector('.wizard-coat');
-  var wizardEyes = window.userDialog.querySelector('.wizard-eyes');
+  // var wizardCoat = window.window.userDialog.querySelector('.wizard-coat');
+  // var wizardEyes = window.userDialog.querySelector('.wizard-eyes');
   var setupFireballWrap = window.userDialog.querySelector('.setup-fireball-wrap');
   var userPic = window.userDialog.querySelector('.setup-user-pic');
   var form = window.userDialog.querySelector('.setup-wizard-form');
@@ -17,9 +17,9 @@
 
 
   window.util.showBlock(setupSimilar);
-  window.colorize.color(wizardCoat, WIZARD_COAT_COLOR, paintWizardCoat);
-  window.colorize.color(wizardEyes, WIZARD_EYES_COLOR, paintWizardEyes);
-  window.colorize.color(setupFireballWrap, WIZARD_FIREBALL_COLOR, paintWizardFireball);
+  window.colorize.color(window.wizardCoat, WIZARD_COAT_COLOR, window.util.paintWizardCoat, window.wizard.addWizards);
+  window.colorize.color(window.wizardEyes, WIZARD_EYES_COLOR, window.util.paintWizardEyes, window.wizard.addWizards);
+  window.colorize.color(setupFireballWrap, WIZARD_FIREBALL_COLOR, window.util.paintWizardFireball);
 
   setupOpen.addEventListener('click', openPopup);
   setupOpen.addEventListener('keydown', function (evt) {
@@ -56,17 +56,6 @@
     });
     window.setupClose.removeEventListener('click', closePopup);
     form.removeEventListener('submit', sendForm);
-  }
-
-  // add wizard setup events
-  function paintWizardCoat(element, color) {
-    element.style.fill = color;
-  }
-  function paintWizardEyes(element, color) {
-    element.style.fill = color;
-  }
-  function paintWizardFireball(element, color) {
-    element.style.background = color;
   }
 
   // отправка формы
