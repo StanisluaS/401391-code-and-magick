@@ -17,9 +17,9 @@
 
 
   window.util.showBlock(setupSimilar);
-  window.colorize.color(wizardCoat, WIZARD_COAT_COLOR, paintWizardCoat);
-  window.colorize.color(wizardEyes, WIZARD_EYES_COLOR, paintWizardEyes);
-  window.colorize.color(setupFireballWrap, WIZARD_FIREBALL_COLOR, paintWizardFireball);
+  window.colorize.color(wizardCoat, WIZARD_COAT_COLOR, window.util.paintWizardCoat);
+  window.colorize.color(wizardEyes, WIZARD_EYES_COLOR, window.util.paintWizardEyes);
+  window.colorize.color(setupFireballWrap, WIZARD_FIREBALL_COLOR, window.util.paintWizardFireball);
 
   setupOpen.addEventListener('click', openPopup);
   setupOpen.addEventListener('keydown', function (evt) {
@@ -56,17 +56,6 @@
     });
     window.setupClose.removeEventListener('click', closePopup);
     form.removeEventListener('submit', sendForm);
-  }
-
-  // add wizard setup events
-  function paintWizardCoat(element, color) {
-    element.style.fill = color;
-  }
-  function paintWizardEyes(element, color) {
-    element.style.fill = color;
-  }
-  function paintWizardFireball(element, color) {
-    element.style.background = color;
   }
 
   // отправка формы

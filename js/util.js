@@ -7,6 +7,8 @@
   window.setupClose = window.userDialog.querySelector('.setup-close');
   var setupUserName = window.userDialog.querySelector('.setup-user-name');
   var errorMessage = document.querySelector('.error-message');
+  var colorCoat;
+  var colorEyes;
 
   window.util = {
     getRandomNumber: function (number) {
@@ -34,6 +36,36 @@
       setTimeout(function () {
         errorMessage.classList.add('hidden');
       }, 5000);
+    },
+
+    // add wizard setup events
+    paintWizardCoat: function (element, color) {
+      element.style.fill = color;
+      colorCoat = color;
+      window.wizard.updateWizards();
+    },
+
+    paintWizardEyes: function (element, color) {
+      element.style.fill = color;
+      colorEyes = color;
+      window.wizard.updateWizards();
+    },
+
+    paintWizardFireball: function (element, color) {
+      element.style.background = color;
+    },
+
+    getRank: function (element) {
+      var rank = 0;
+
+      if (element.colorCoat === colorCoat) {
+        rank += 2;
+      }
+      if (element.colorEyes === colorEyes) {
+        rank += 1;
+      }
+      return rank;
     }
+
   };
 })();
