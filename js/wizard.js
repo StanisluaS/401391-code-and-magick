@@ -15,16 +15,20 @@
   }
 
   window.wizard = {
-    updateWizards: function () {
-      printWizard(wizards.sort(function (left, right) {
-        var rankDiff = window.util.getRank(right) - window.util.getRank(left);
-        if (rankDiff === 0) {
-          rankDiff = window.util.namesComparator(left.name, right.name);
-        }
-        return rankDiff;
-      }));
+    addWizards: function () {
+      window.debounce.setTimeout(updateWizards);
     }
   };
+
+  function updateWizards() {
+    printWizard(wizards.sort(function (left, right) {
+      var rankDiff = window.util.getRank(right) - window.util.getRank(left);
+      if (rankDiff === 0) {
+        rankDiff = window.util.namesComparator(left.name, right.name);
+      }
+      return rankDiff;
+    }));
+  }
 
   // add wizard's friends
   function renderWizard(wizard) {

@@ -5,10 +5,10 @@
   var ENTER_KEYCODE = 13;
   window.userDialog = document.querySelector('.setup');
   window.setupClose = window.userDialog.querySelector('.setup-close');
+  window.wizardCoat = window.window.userDialog.querySelector('.wizard-coat');
+  window.wizardEyes = window.userDialog.querySelector('.wizard-eyes');
   var setupUserName = window.userDialog.querySelector('.setup-user-name');
   var errorMessage = document.querySelector('.error-message');
-  var colorCoat;
-  var colorEyes;
 
   window.util = {
     getRandomNumber: function (number) {
@@ -41,14 +41,10 @@
     // add wizard setup events
     paintWizardCoat: function (element, color) {
       element.style.fill = color;
-      colorCoat = color;
-      window.wizard.updateWizards();
     },
 
     paintWizardEyes: function (element, color) {
       element.style.fill = color;
-      colorEyes = color;
-      window.wizard.updateWizards();
     },
 
     paintWizardFireball: function (element, color) {
@@ -57,6 +53,12 @@
 
     getRank: function (element) {
       var rank = 0;
+      var colorCoat = window.wizardCoat.style.fill;
+      var colorEyes = window.wizardEyes.style.fill;
+
+      if (colorEyes === '') {
+        colorEyes = 'black';
+      }
 
       if (element.colorCoat === colorCoat) {
         rank += 2;
