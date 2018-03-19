@@ -32,10 +32,12 @@
 
   // add wizard's friends
   function renderWizard(wizard) {
-    var wizardElement = similarWizardTemplate.cloneNode(true);
+    var element = similarWizardTemplate.cloneNode(true);
+    var wizardElement = element.querySelector('.setup-similar-item');
     wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
     wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
     wizardElement.querySelector('.wizard-eyes').style.fill = wizard.colorEyes;
+    window.popup.handleShowHideWizardBag(wizardElement, wizard);
     return wizardElement;
   }
 
@@ -48,6 +50,5 @@
     }
     similarListElement.appendChild(fragment);
   }
-
 
 })();

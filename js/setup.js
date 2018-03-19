@@ -4,10 +4,7 @@
 (function () {
   var setupSimilar = window.userDialog.querySelector('.setup-similar');
   var setupOpen = document.querySelector('.setup-open');
-  // var wizardCoat = window.window.userDialog.querySelector('.wizard-coat');
-  // var wizardEyes = window.userDialog.querySelector('.wizard-eyes');
   var setupFireballWrap = window.userDialog.querySelector('.setup-fireball-wrap');
-  var userPic = window.userDialog.querySelector('.setup-user-pic');
   var form = window.userDialog.querySelector('.setup-wizard-form');
 
 
@@ -29,7 +26,8 @@
   // add open/close events
   function openPopup() {
     window.userDialog.classList.remove('hidden');
-    userPic.addEventListener('mousedown', window.dialog.dragging);
+    window.userInput.addEventListener('mousedown', window.dialog.dragging);
+    window.userInput.addEventListener('change', window.avatar.addAvatar);
     window.moveElement.addEventsForDragAndDrop();
     setupOpen.removeEventListener('click', openPopup);
     setupOpen.removeEventListener('keydown', function (evt) {
@@ -45,7 +43,8 @@
   function closePopup() {
     window.dialog.resetBias();
     window.userDialog.classList.add('hidden');
-    userPic.removeEventListener('mousedown', window.dialog.dragging);
+    window.userInput.removeEventListener('mousedown', window.dialog.dragging);
+    window.userInput.removeEventListener('change', window.avatar.addAvatar);
     window.moveElement.removeEventsForDragAndDrop();
     setupOpen.addEventListener('click', openPopup);
     setupOpen.addEventListener('keydown', function (evt) {

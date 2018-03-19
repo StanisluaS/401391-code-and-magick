@@ -54,11 +54,11 @@
     getRank: function (element) {
       var rank = 0;
       var colorCoat = window.wizardCoat.style.fill;
-      var colorEyes = window.wizardEyes.style.fill;
+      var colorEyes = window.wizardEyes.style.fill || 'black';
 
-      if (colorEyes === '') {
-        colorEyes = 'black';
-      }
+      // if (colorEyes === '') {
+      //   colorEyes = 'black';
+      // }
 
       if (element.colorCoat === colorCoat) {
         rank += 2;
