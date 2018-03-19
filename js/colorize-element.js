@@ -7,7 +7,9 @@
       element.addEventListener('click', function () {
         var color = colors[window.util.getRandomNumber(colors.length)];
         onColorChange(element, color);
-        updateWizards();
+        if (typeof updateWizards === 'function') {
+          updateWizards();
+        }
       });
     }
   };
