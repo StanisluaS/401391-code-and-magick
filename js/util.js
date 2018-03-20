@@ -38,37 +38,6 @@
       }, 5000);
     },
 
-    // add wizard setup events
-    paintWizardCoat: function (element, color) {
-      element.style.fill = color;
-    },
-
-    paintWizardEyes: function (element, color) {
-      element.style.fill = color;
-    },
-
-    paintWizardFireball: function (element, color) {
-      element.style.background = color;
-    },
-
-    getRank: function (element) {
-      var rank = 0;
-      var colorCoat = window.wizardCoat.style.fill;
-      var colorEyes = window.wizardEyes.style.fill || 'black';
-
-      // if (colorEyes === '') {
-      //   colorEyes = 'black';
-      // }
-
-      if (element.colorCoat === colorCoat) {
-        rank += 2;
-      }
-      if (element.colorEyes === colorEyes) {
-        rank += 1;
-      }
-      return rank;
-    },
-
     namesComparator: function (left, right) {
       if (left > right) {
         return 1;

@@ -3,13 +3,9 @@
 (function () {
 
   window.colorize = {
-    color: function (element, colors, onColorChange, updateWizards) {
+    color: function (element, onColorChange, color) {
       element.addEventListener('click', function () {
-        var color = colors[window.util.getRandomNumber(colors.length)];
         onColorChange(element, color);
-        if (typeof updateWizards === 'function') {
-          updateWizards();
-        }
       });
     }
   };
